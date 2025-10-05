@@ -2,9 +2,9 @@
 
 This repository contains ESPHome components (https://esphome.io/components/external_components) that can be used with Home Assistant and ESPHome Add-on (https://www.home-assistant.io/addons/).
 
-### ivt490_rego411
+### ivt_uart
 
-A component to extend the functionality of an IVT 490 air-to-air heat pump with Rego 411 controller.
+A component to extend the functionality of an IVT 490 air-to-air heat pump with Rego 411 controller. It probably works with no or little modifications with other models and/or controller versions.
 
 Prototype hardware requirements:
 - ESP32-C3-Zero (https://www.waveshare.com/wiki/ESP32-C3-Zero)
@@ -13,4 +13,4 @@ Prototype hardware requirements:
 - Casing, experiment board and connector cables.
 - Soldering tools, glue and cutters.
 
-![Image of prototype hardware for ivt490_rego411 component](/assets/images/ivt490_rego411_prototype.jpg)
+![Image of prototype hardware for ivt490_rego411 component](/assets/images/ivt_gateway_prototype.jpg)
