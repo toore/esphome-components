@@ -1,19 +1,19 @@
-#include "ivt490_uart.h"
+#include "ivt_uart.h"
 #include "esphome/core/log.h"
 #include <sstream>
 
 namespace esphome {
-namespace ivt490_uart {
+namespace ivt_uart {
 
-static const char *const TAG = "IVT490";
+static const char *const TAG = "IVT";
 
-void IVT490Parser::set_sensor(uint8_t index, sensor::Sensor *sensor) {
+void IVTParser::set_sensor(uint8_t index, sensor::Sensor *sensor) {
   if (index < 37) {
     sensors_[index] = sensor;
   }
 }
 
-void IVT490Parser::loop() {
+void IVTParser::loop() {
   while (available()) {
     uint8_t byte = read();
 
@@ -51,5 +51,5 @@ void IVT490Parser::loop() {
   }
 }
 
-}  // namespace ivt490_uart
+}  // namespace ivt_uart
 }  // namespace esphome

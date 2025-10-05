@@ -5,11 +5,11 @@ from esphome.const import CONF_ID, CONF_UART_ID
 
 DEPENDENCIES = ["uart"]
 
-ivt490_uart_ns = cg.esphome_ns.namespace("ivt490_uart")
-IVT490Parser = ivt490_uart_ns.class_("IVT490Parser", cg.Component)
+ivt_uart_ns = cg.esphome_ns.namespace("ivt_uart")
+IVTParser = ivt_uart_ns.class_("IVTParser", cg.Component)
 
 CONFIG_SCHEMA = cv.Schema({
-    cv.GenerateID(): cv.declare_id(IVT490Parser),
+    cv.GenerateID(): cv.declare_id(IVTParser),
     cv.Required(CONF_UART_ID): cv.use_id(uart.UARTComponent),
 }).extend(cv.COMPONENT_SCHEMA)
 
