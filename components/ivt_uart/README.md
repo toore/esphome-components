@@ -1,9 +1,16 @@
+# yaml example configuration
+
 ``` yaml
-# example configuration:
+# example configuration
 
 esphome:
   name: ivt490-gateway
   friendly_name: IVT 490
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
 
 switch:
   - platform: gpio
