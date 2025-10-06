@@ -13,7 +13,7 @@ Features:
 Prototype hardware requirements:
 - ESP32-C3-Zero (https://www.waveshare.com/wiki/ESP32-C3-Zero)
 - Arduino 5V Relay Module
-- Sullins 2x5 2.54mm connector ("CONN EDGE DUAL FMALE 10POS 0.100")
+- Sullins 2x5 2.54mm connector (https://www.digikey.se/sv/products/detail/sullins-connector-solutions/EBC05DRXN/1318485)
 - Casing, experiment board and connector cables.
 - Soldering tools, glue and cutters.
 
