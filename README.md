@@ -4,7 +4,7 @@ This repository contains ESPHome components (https://esphome.io/components/exter
 
 ### ivt_uart
 
-A component to extend the functionality of an IVT 490 air-to-air heat pump with Rego 411 controller. It probably works with no or little modifications with other models and/or controller versions.
+A component to extend the functionality of an IVT 490 air-to-air heat pump with Rego 411 controller, version 5.12. It probably works with no or little modifications with other models and/or controller versions.
 
 Features:
 - Switch control to close a relay that can be used to control vacation mode override.
