@@ -18,3 +18,7 @@ Prototype hardware requirements:
 - Soldering tools, glue and cutters.
 
 ![Image of prototype hardware for ivt490_rego411 component](/assets/images/ivt_gateway_prototype.jpg)
+
+Home Assistant example:
+
+![Screenshot from Home Assistant on Android](/assets/images/home_assistant_example.jpg)
