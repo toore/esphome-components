@@ -12,6 +12,13 @@ esp32:
   framework:
     type: esp-idf
 
+external_components:
+  source:
+    type: git
+    url: https://github.com/toore/esphome-components
+    ref: main
+  components: [ivt_uart]
+
 switch:
   - platform: gpio
     pin: GPIO0
@@ -36,70 +43,94 @@ sensor:
 
   - platform: ivt_uart
     index: 1
-    name: "Framledning GT1"
+    name: "Framledning värme GT1"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 2
     name: "Ute GT2"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 3
-    name: "Tappvarmvatten Topp GT3-1"
+    name: "Tappvarmvatten GT3:1"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 4
-    name: "Varmvatten Mitt GT3-2"
+    name: "Varmvatten GT3:2"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 5
-    name: "Värmevatten Botten GT3-3"
+    name: "Värmevatten GT3:3"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 6
-    name: "Rumstemp GT5"
+    name: "Rum GT5"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 7
-    name: "Hetgas GT6"
+    name: "Kompressor GT6"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 8
-    name: "Extra Acc-Tank GT3-4"
+    name: "Ackumulatortank GT3:4"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 9
-    name: "Tryckvakt avfrostning GP3"
+    name: "Avfrostningsvakt GP3"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 10
-    name: "Högtrycksvakt HP"
+    name: "Högtrycksvakt GP2"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 11
-    name: "Lågtrycksvakt LP"
+    name: "Lågtrycksvakt GP1"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 12
-    name: "Semester aktiv"
+    name: "Semesterfunktion aktiv"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
@@ -109,12 +140,12 @@ sensor:
 
   - platform: ivt_uart
     index: 14
-    name: "Shuntventil öppna SV1"
+    name: "Shuntventil SV1 öppna"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 15
-    name: "Shuntventil stäng SV1"
+    name: "Shuntventil SV1 stäng"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
@@ -124,7 +155,7 @@ sensor:
 
   - platform: ivt_uart
     index: 17
-    name: "Fläkt"
+    name: "Fläkt G22"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
@@ -134,89 +165,143 @@ sensor:
 
   - platform: ivt_uart
     index: 19
-    name: "Extern P2"
+    name: "Extern pump P2"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 20
-    name: "LLT GT1"
+    name: "Minsta tillåtna beräknat värde GT1"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 21
-    name: "LL GT1"
+    name: "Undre gränsvärdestemperatur GT1"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 22
-    name: "Börvärde framledning GT1"
+    name: "Framledning värme beräknad GT1"
     unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 23
-    name: "UL GT1"
+    name: "Övre gränsvärdestemperatur GT1"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 24
-    name: "LL GT3:2"
+    name: "Undre gränsvärdestemperatur GT3:2"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 25
-    name: "ULT GT3:2"
+    name: "Inställning för tappvarmvattentemperatur"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 26
-    name: "UL GT3:2"
+    name: "Övre gränsvärdestemperatur GT3:2"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 27
-    name: "LL GT3:3"
+    name: "Undre gränsvärdestemperatur GT3:3"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 28
-    name: "BV GT3:3"
+    name: "Beräknad GT3:3"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 29
-    name: "SV3 BV Förskjutning"
+    name: "Beräknad förskjutning SV3"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 30
-    name: "Effekt inkopplad vid VV behov"
+    name: "Effekt inkopplad vid varmvattenbehov"
+    unit_of_measurement: "kW"
+    device_class: power
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 31
-    name: "Tillskottstimer VV behov"
+    name: "Tillskottstimer varmvattenbehov"
+    unit_of_measurement: "min"
+    device_class: duration
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 32
-    name: "Tappvatten prioritet"
+    name: "Tappvarmvatten prioritet"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 33
     name: "Elpatron tillskott"
     unit_of_measurement: "%"
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 34
-    name: "Tillskott RAD"
+    name: "Radiator tillskott"
+    unit_of_measurement: "%"
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 35
-    name: "Tillskott Tillägg"
+    name: "Tillägg tillskott"
+    unit_of_measurement: "%"
+    filters:
+      - multiply: 0.1
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
