@@ -140,12 +140,12 @@ sensor:
 
   - platform: ivt_uart
     index: 14
-    name: "Shuntventil SV1 öppna"
+    name: "Öppna shuntventil SV1 mot värmesystem"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
     index: 15
-    name: "Shuntventil SV1 stäng"
+    name: "Stäng shuntventil SV1 mot värmesystem"
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
@@ -179,7 +179,7 @@ sensor:
 
   - platform: ivt_uart
     index: 21
-    name: "Undre gränsvärdestemperatur GT1"
+    name: "Undre gränsvärde GT1"
     unit_of_measurement: "°C"
     accuracy_decimals: 1
     filters:
@@ -197,7 +197,7 @@ sensor:
 
   - platform: ivt_uart
     index: 23
-    name: "Övre gränsvärdestemperatur GT1"
+    name: "Övre gränsvärde GT1"
     unit_of_measurement: "°C"
     accuracy_decimals: 1
     filters:
@@ -206,7 +206,7 @@ sensor:
 
   - platform: ivt_uart
     index: 24
-    name: "Undre gränsvärdestemperatur GT3:2"
+    name: "Undre gränsvärde GT3:2"
     unit_of_measurement: "°C"
     accuracy_decimals: 1
     filters:
@@ -224,7 +224,7 @@ sensor:
 
   - platform: ivt_uart
     index: 26
-    name: "Övre gränsvärdestemperatur GT3:2"
+    name: "Övre gränsvärde GT3:2"
     unit_of_measurement: "°C"
     accuracy_decimals: 1
     filters:
@@ -233,7 +233,7 @@ sensor:
 
   - platform: ivt_uart
     index: 27
-    name: "Undre gränsvärdestemperatur GT3:3"
+    name: "Undre gränsvärde GT3:3"
     unit_of_measurement: "°C"
     accuracy_decimals: 1
     filters:
@@ -277,7 +277,9 @@ sensor:
 
   - platform: ivt_uart
     index: 32
-    name: "Tappvarmvatten prioritet"
+    name: "Sänkt framledning pga varmvattenprioritet"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 0
     parent_id: ivt_uart_main
 
   - platform: ivt_uart
@@ -306,5 +308,5 @@ sensor:
 
   - platform: ivt_uart
     index: 36
-    name: "SV2 Öppen"
+    name: "Shuntventil SV2 Öppen"
     parent_id: ivt_uart_main
