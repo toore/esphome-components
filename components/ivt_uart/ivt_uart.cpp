@@ -9,7 +9,7 @@ static const char *const TAG = "IVT";
 
 void IVTParser::set_sensor(uint8_t index, sensor::Sensor *sensor) {
   if (index < 37) {
-    sensors_[index] = sensor;
+    _sensors[index] = sensor;
   }
 }
 
@@ -19,8 +19,8 @@ void IVTParser::loop() {
 
     if (byte == '\r') {
       // End of line — parse buffer
-      std::string line(buffer_.begin(), buffer_.end());
-      buffer_.clear();
+      std::string line(_buffer.begin(), _buffer.end());
+      _buffer.clear();
 
       std::vector<std::string> parts;
       std::string token;
@@ -31,21 +31,21 @@ void IVTParser::loop() {
       }
 
       for (size_t i = 0; i < 37 && i < parts.size(); ++i) {
-        if (sensors_[i] != nullptr) {
+        if (_sensors[i] != nullptr) {
           char* endptr = nullptr;
           int value = std::strtol(parts[i].c_str(), &endptr, 10);
           if (endptr != parts[i].c_str() && *endptr == '\0') {
-            sensors_[i]->publish_state(static_cast<float>(value));
+            _sensors[i]->publish_state(static_cast<float>(value));
           } else {
             ESP_LOGW(TAG, "Invalid integer at index %d: %s", static_cast<int>(i), parts[i].c_str());
           }
         }
       }
     } else {
-      buffer_.push_back(byte);
-      if (buffer_.size() > 512) {
+      _buffer.push_back(byte);
+      if (_buffer.size() > 512) {
         ESP_LOGW(TAG, "Buffer overflow — clearing");
-        buffer_.clear();
+        _buffer.clear();
       }
     }
   }

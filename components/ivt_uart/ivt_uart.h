@@ -3,6 +3,7 @@
 #include "esphome/components/sensor/sensor.h"
 #include "esphome/components/uart/uart.h"
 #include <sstream>
+#include <vector>
 
 namespace esphome {
 namespace ivt_uart {
@@ -17,8 +18,8 @@ class IVTParser : public Component, public uart::UARTDevice {
    void set_sensor(uint8_t index, sensor::Sensor *sensor);
  
   protected:
-   sensor::Sensor *sensors_[37] = {nullptr}; // Array of sensor pointers
-   std::vector<uint8_t> buffer_;                   // Byte buffer for accumulating UART data
+   sensor::Sensor *_sensors[37] = {nullptr}; // Array of sensor pointers
+   std::vector<uint8_t> _buffer;                   // Byte buffer for accumulating UART data
  };
 
 class IVTSensor : public sensor::Sensor, public Component {
