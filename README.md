@@ -6,7 +6,7 @@ This repository contains [ESPHome components](https://esphome.io/components/exte
 
 A component designed to extend the functionality of the IVT 490 air-to-air heat pump equipped with a Rego 411 controller (version 5.12).  
 It may also work with other models and controller versions with minimal or no modifications.  
-Examples of potentially compatible models include: IVT 490, IVT 690, Bosch EHP EW, and Carrier 30NQ2EA.
+Examples of potentially compatible models include IVT 490, IVT 690, Bosch EHP EW and Carrier 30NQ2EA.
 
 Features:
 - Relay switch control for vacation mode override
